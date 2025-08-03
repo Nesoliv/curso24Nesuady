@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+#body{
+background-image: url("https://i.pinimg.com/1200x/db/c5/86/dbc5862dd3abd8ce20f9cfc58ca52137.jpg");
+background-size: cover;
+color: aliceblue;
+backdrop-filter: blur(5px);
+box-sizing: border-box;
+margin: 0;
+height: 95vh;
+width: 95vw;
+
+}
+
+.title{
+font-family: "Roboto", sans-serif;
+text-align: center;
+text-transform: capitalize;
+text-shadow: 2px 2px 20px #009DCF;
+
+}
+
+.margin{
+margin: 20px;
+width: 90vw;
+}
+
+.paragraph{
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-style: italic;
+
+}
+
+
+.paraRem{
+font-family: "Roboto", sans-serif;
+text-align: center;
+font-size: 1.5em;
+text-decoration: line-through;
+}
+
+.paraEm{
+font-family: "Roboto", sans-serif;
+text-align: center;
+font-size: 2rem;
+text-decoration: double;
+}
+
+.paraPix{
+font-family: "Roboto", sans-serif;
+text-align: center;
+font-size: 16px;
+
+}
+
+#titleSection{
+    width: 90vw;
+    height: 20vh;
+    box-shadow: 2px 2px 20px #c0c1c2;
+    border-radius: 100px;
+    border: 2px solid #090a4b;
+    cursor: pointer;
+}
