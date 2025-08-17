@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+.gridAreas{
+    display: grid;
+    grid-template-columns: 150px 1fr; 
+    grid-template-rows: 100px auto;    
+    grid-template-areas: 
+    "busqueda busqueda"
+    "lateral lista"
+    "lateral contenido"
+    "lateral contenido"
+;
+    gap: 10px;
+}
+#busqueda{
+    grid-area: busqueda;
+}
+#lista{
+    grid-area: lista;
+}
+#lateral{
+    grid-area: lateral;
+}
+#contenido{
+    grid-area: contenido;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    
+
+    .logo-contenedor{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    cursor: pointer;
+    }
+    .logo{
+    width: 130px;
+    height: 40px;
+    padding: 10px 10px 10px 10px;
+    }
+    .menu-btn{
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.menu-btn:hover{
+    background-color: #ececec;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+}  
+.menu-btn i{
+    font-size: 1.2rem;
+}  
+.input-contenedor{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    
+}
+.barra-busqueda{
+    margin: 0 0 0 5px;
+    height: 40px;
+    width: 550px;
+    border-radius: 50px 0 0 50px;
+    border-right: none;
+    padding-left: 15px;
+    border: 1px solid  rgb(245, 240, 240);
+}
+.busqueda-btn{
+    background-color: #f8f8f8;
+    height: 40px;
+    width: 60px;
+    border-radius: 0 50px 50px 0; 
+    border: 1px solid  rgb(245, 240, 240);
+    cursor: pointer;
+
+}
+.busqueda-btn i{
+    font-size: 1.2rem;
+}
+.busqueda-btn:hover{
+    background-color: #ececec;
+}
+input::placeholder {
+    font-size: 1rem;
+}
+input:focus {
+    outline: none;
+    border: 1px solid  rgb(245, 240, 240);
+}
+.microfono-btn{
+    background-color: #f8f8f8;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.microfono-btn i{
+    font-size: 1.2rem;
+}
+.microfono-btn:hover{
+    background-color: #ececec;
+}
+.btn-contenedor{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    gap: 5px;
+}
+.crear-btn{
+    background-color: #f8f8f8;
+    border: none;
+    height: 40px;
+    width: 75px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.crear-btn i{
+    font-size: 2rem;
+}
+.crear-btn:hover{
+    background-color: #ececec;
+}
+.notificaciones-btn{
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.notificaciones-btn i{
+    font-size: 1.2rem;
+}
+.notificaciones-btn:hover{
+    background-color: #ececec;
+}
+.perfil-btn{
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.perfil-btn i{
+    font-size: 1.2rem;
+}
+.perfil-btn:hover{
+    background-color: #ececec;
+}
+
+}
+.categorias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 150px 0 10px;
+}
+.categoria-lista:nth-child(1){
+    background-color: #000;
+    color: #fff;
+}
+
+.categoria-lista{
+    background-color: #f8f8f8;
+    border: 1px solid #f8f8f8;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-lateral{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: fixed;
+    left: 45px;
+    
+}
+.menu-lateral span{
+    font-size: 10px;
+}
+.menu-lateral i{
+    color: black;
+    font-size: 20px;
+}
+.contenedor-videos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 50px;
+}
+.videos img{
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+
+}
+.videos span{
+    color: #000;
+}
+.videos a{
+    text-decoration: none;
+    color: #606060;
+}
+
+/*Media Query para pantallas pequeñas*/
+@media screen and (max-width: 715px){
+
+    .gridAreas{
+    display: grid;
+    grid-template-columns: 150px 1fr; 
+    grid-template-rows: 100px auto;    
+    grid-template-areas: 
+    "busqueda busqueda"
+    "lista lista"
+    "contenido contenido"
+    "contenido contenido"
+;
+    gap: 10px;
+}
+#busqueda{
+    grid-area: busqueda;
+}
+#lista{
+    grid-area: lista;
+}
+#lateral{
+    grid-area: lateral;
+}
+#contenido{
+    grid-area: contenido;
+}
+    .contenedor{
+        display: flex;
+        justify-content: space-around;
+    }
+    .barra-busqueda{
+        display: none;
+    }
+    .menu-lateral{
+        display: none;
+
+    }
+
+.busqueda-btn{
+    border-radius: 50px;
+}
+.contenedor-videos{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    margin: 70px 0 0 50px;
+            
+}
+.videos img{
+        width: 100%;
+        height: auto;
+        border-radius: 8px; 
+}  
+.categorias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 0 0 50px;
+    gap: 10px;
+}
+}
+
+/*Media Query para pantallas medianas*/
+@media screen and (min-width: 716px) and (max-width: 1023px){
+    header{
+        flex-direction: row;
+    }
+.barra-busqueda{
+        width: auto;
+    }
+
+.contenedor-videos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 70px;
+}
+.videos img{
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+
+}
+.categorias{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 0 0 50px;
+    gap: 10px;
+}
+}
+
