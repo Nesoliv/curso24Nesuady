@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Reproductor web: música para todos</title>
+    <link rel="stylesheet" href="../sass/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="gridArea">
+    <header>
+        <nav class="contenedor" id="barra_busqueda">
+            <div class="contenedor_busqueda">
+                <button title="Spotify" class="btn_logo btn_logo--spotify">
+                    <svg role="img" viewBox="0 0 24 24" class="e-91000-logo e-91000-baseline" aria-label="Spotify" aria-hidden="false" height="32" data-encore-id="logoSpotify" style="--encore-logo-fill-color: var(--decorative-base);"><title>Spotify</title><path d="M13.427.01C6.805-.253 1.224 4.902.961 11.524.698 18.147 5.853 23.728 12.476 23.99c6.622.263 12.203-4.892 12.466-11.514S20.049.272 13.427.01m5.066 17.579a.717.717 0 0 1-.977.268 14.4 14.4 0 0 0-5.138-1.747 14.4 14.4 0 0 0-5.42.263.717.717 0 0 1-.338-1.392c1.95-.474 3.955-.571 5.958-.29 2.003.282 3.903.928 5.647 1.92a.717.717 0 0 1 .268.978m1.577-3.15a.93.93 0 0 1-1.262.376 17.7 17.7 0 0 0-5.972-1.96 17.7 17.7 0 0 0-6.281.238.93.93 0 0 1-1.11-.71.93.93 0 0 1 .71-1.11 19.5 19.5 0 0 1 6.94-.262 19.5 19.5 0 0 1 6.599 2.165c.452.245.62.81.376 1.263m1.748-3.551a1.147 1.147 0 0 1-1.546.488 21.4 21.4 0 0 0-6.918-2.208 21.4 21.4 0 0 0-7.259.215 1.146 1.146 0 0 1-.456-2.246 23.7 23.7 0 0 1 8.034-.24 23.7 23.7 0 0 1 7.657 2.445c.561.292.78.984.488 1.546m13.612-.036-.832-.247c-1.67-.495-2.14-.681-2.14-1.353 0-.637.708-1.327 2.264-1.327 1.539 0 2.839.752 3.51 1.31.116.096.24.052.24-.098V6.935c0-.097-.027-.15-.098-.203-.83-.62-2.272-1.07-3.723-1.07-2.953 0-4.722 1.68-4.722 3.59 0 2.157 1.371 2.91 3.626 3.546l.973.274c1.689.478 1.998.902 1.998 1.556 0 1.097-.831 1.433-2.07 1.433-1.556 0-3.457-.911-4.35-2.025-.08-.098-.177-.053-.177.062v2.423c0 .097.01.141.08.22.743.814 2.52 1.53 4.59 1.53 2.546 0 4.456-1.485 4.456-3.784 0-1.787-1.052-2.865-3.625-3.635m10.107-1.76c-1.68 0-2.653 1.026-3.219 2.052V9.376c0-.08-.044-.124-.124-.124h-2.22c-.079 0-.123.044-.123.124V20.72c0 .08.044.124.124.124h2.22c.079 0 .123-.044.123-.124v-4.536c.566 1.025 1.521 2.034 3.237 2.034 2.264 0 3.89-1.955 3.89-4.581s-1.644-4.545-3.908-4.545m-.654 6.986c-1.185 0-2.211-1.167-2.618-2.458.407-1.362 1.344-2.405 2.618-2.405 1.211 0 2.051.92 2.051 2.423s-.84 2.44-2.051 2.44m40.633-6.826h-2.264c-.08 0-.115.017-.15.097l-2.282 5.483-2.29-5.483c-.035-.08-.07-.097-.15-.097h-3.661v-.584c0-.955.645-1.397 1.476-1.397.496 0 1.035.256 1.415.486.089.053.15-.008.115-.088l-.796-1.901a.26.26 0 0 0-.124-.133c-.389-.203-1.025-.38-1.644-.38-1.875 0-2.954 1.432-2.954 3.254v.743h-1.503c-.08 0-.124.044-.124.124v1.768c0 .08.044.124.124.124h1.503v6.668c0 .08.044.123.124.123h2.264c.08 0 .124-.044.124-.123v-6.668h1.936l2.812 6.11-1.512 3.325c-.044.098.009.142.097.142h2.414c.08 0 .116-.018.15-.097l4.997-11.355c.035-.08-.009-.141-.097-.141M54.964 9.04c-2.865 0-4.837 2.025-4.837 4.616 0 2.573 1.971 4.616 4.837 4.616 2.856 0 4.846-2.043 4.846-4.616 0-2.591-1.99-4.616-4.846-4.616m.008 7.065c-1.37 0-2.343-1.043-2.343-2.45 0-1.405.973-2.449 2.343-2.449 1.362 0 2.335 1.043 2.335 2.45 0 1.406-.973 2.45-2.335 2.45m33.541-6.334a1.24 1.24 0 0 0-.483-.471 1.4 1.4 0 0 0-.693-.17q-.384 0-.693.17a1.24 1.24 0 0 0-.484.471q-.174.302-.174.681 0 .375.174.677.175.3.484.471t.693.17.693-.17.483-.471.175-.676q0-.38-.175-.682m-.211 1.247a1 1 0 0 1-.394.39 1.15 1.15 0 0 1-.571.14 1.16 1.16 0 0 1-.576-.14 1 1 0 0 1-.391-.39 1.14 1.14 0 0 1-.14-.566q0-.316.14-.562t.391-.388.576-.14q.32 0 .57.14.253.141.395.39t.142.565q0 .312-.142.56m-19.835-5.78c-.85 0-1.468.6-1.468 1.396s.619 1.397 1.468 1.397c.866 0 1.485-.6 1.485-1.397 0-.796-.619-1.397-1.485-1.397m19.329 5.19a.31.31 0 0 0 .134-.262q0-.168-.132-.266-.132-.099-.381-.099h-.588v1.229h.284v-.489h.154l.374.489h.35l-.41-.518a.5.5 0 0 0 .215-.084m-.424-.109h-.26v-.3h.27q.12 0 .184.036a.12.12 0 0 1 .065.116.12.12 0 0 1-.067.111.4.4 0 0 1-.192.037M69.607 9.252h-2.263c-.08 0-.124.044-.124.124v8.56c0 .08.044.123.124.123h2.263c.08 0 .124-.044.124-.123v-8.56c0-.08-.044-.124-.124-.124m-3.333 6.605a2.1 2.1 0 0 1-1.053.257c-.725 0-1.185-.425-1.185-1.362v-3.484h2.211c.08 0 .124-.044.124-.124V9.376c0-.08-.044-.124-.124-.124h-2.21V6.944c0-.097-.063-.15-.15-.08l-3.954 3.113c-.053.044-.07.088-.07.16v1.007c0 .08.044.124.123.124h1.539v3.855c0 2.087 1.203 3.06 2.918 3.06.743 0 1.46-.194 1.884-.442.062-.035.07-.07.07-.133v-1.68c0-.088-.044-.115-.123-.07" transform="translate(-0.95,0)"></path></svg>
+                </button>
+                <button class="btn btn--inicio">
+                    <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-91000-icon e-91000-baseline" viewBox="0 0 24 24"><path d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732z"></path></svg>
+                </button>
+                <div class="contenedor_busqueda">
+                    <button class="btn btn--lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" placeholder="¿Qué quieres reproducir?" class="sidebar">
+                    <button class="btn btn--explorar">
+                        <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-91000-icon e-91000-baseline" viewBox="0 0 24 24"><path d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2"></path><path d="M1.513 9.37A1 1 0 0 1 2.291 9h19.418a1 1 0 0 1 .979 1.208l-2.339 11a1 1 0 0 1-.978.792H4.63a1 1 0 0 1-.978-.792l-2.339-11a1 1 0 0 1 .201-.837zM3.525 11l1.913 9h13.123l1.913-9zM4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4h-2V3H6v3H4z"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="contenedor_busqueda">
+                <button title="Sube a Premiun" class="btn_premium">Descubrir Premium</button>
+                <span class="btn_instalar">
+                    <i class="fa-solid fa-circle-arrow-down"></i>
+                    <span>Instalar app</span>
+                </span>
+                <button class="btn btn--novedades">
+                    <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-91000-icon e-91000-baseline" viewBox="0 0 16 16" style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);"><path d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4m-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569zm4.5 8a1 1 0 1 0 2 0z"></path></svg>
+                </button>
+                <button class="btn btn--novedades">
+                    <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-91000-icon e-91000-baseline" viewBox="0 0 16 16" style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);"><path d="M3.849 10.034c-.021-.465.026-.93.139-1.381H1.669c.143-.303.375-.556.665-.724l.922-.532a1.63 1.63 0 0 0 .436-2.458 1.8 1.8 0 0 1-.474-1.081q-.014-.287.057-.563a1.12 1.12 0 0 1 .627-.7 1.2 1.2 0 0 1 .944 0q.225.1.392.281c.108.12.188.263.237.417q.074.276.057.561a1.8 1.8 0 0 1-.475 1.084 1.6 1.6 0 0 0-.124 1.9c.36-.388.792-.702 1.272-.927v-.015c.48-.546.768-1.233.821-1.958a3.2 3.2 0 0 0-.135-1.132 2.657 2.657 0 0 0-5.04 0c-.111.367-.157.75-.135 1.133.053.724.341 1.41.821 1.955A.13.13 0 0 1 2.565 6a.13.13 0 0 1-.063.091l-.922.532A3.2 3.2 0 0 0-.004 9.396v.75h3.866c.001-.033-.01-.071-.013-.112m10.568-3.4-.922-.532a.13.13 0 0 1-.064-.091.12.12 0 0 1 .028-.1c.48-.546.768-1.233.821-1.958a3.3 3.3 0 0 0-.135-1.135A2.64 2.64 0 0 0 12.7 1.233a2.67 2.67 0 0 0-3.042.64 2.65 2.65 0 0 0-.554.948c-.11.367-.156.75-.134 1.133.053.724.341 1.41.821 1.955.005.006 0 .011 0 .018.48.225.911.54 1.272.927a1.6 1.6 0 0 0-.125-1.907 1.8 1.8 0 0 1-.474-1.081q-.015-.287.057-.563a1.12 1.12 0 0 1 .627-.7 1.2 1.2 0 0 1 .944 0q.225.1.392.281.162.182.236.413c.05.184.07.375.058.565a1.8 1.8 0 0 1-.475 1.084 1.633 1.633 0 0 0 .438 2.456l.922.532c.29.169.52.421.664.724h-2.319c.113.452.16.918.139 1.383 0 .04-.013.078-.017.117h3.866v-.75a3.2 3.2 0 0 0-1.58-2.778v.004zm-3.625 6-.922-.532a.13.13 0 0 1-.061-.144.1.1 0 0 1 .025-.047 3.33 3.33 0 0 0 .821-1.958 3.2 3.2 0 0 0-.135-1.132 2.657 2.657 0 0 0-5.041 0c-.11.367-.156.75-.134 1.133.053.724.341 1.41.821 1.955a.13.13 0 0 1 .028.106.13.13 0 0 1-.063.091l-.922.532a3.2 3.2 0 0 0-1.584 2.773v.75h8.75v-.75a3.2 3.2 0 0 0-1.583-2.781zm-5.5 2.023c.143-.303.375-.556.665-.724l.922-.532a1.63 1.63 0 0 0 .436-2.458 1.8 1.8 0 0 1-.474-1.081q-.015-.287.057-.563a1.12 1.12 0 0 1 .627-.7 1.2 1.2 0 0 1 .944 0q.225.1.392.281c.108.12.188.263.237.417q.073.276.057.561a1.8 1.8 0 0 1-.475 1.084 1.632 1.632 0 0 0 .438 2.456l.922.532c.29.169.52.421.664.724z"></path></svg>
+                </button>
+                <button class="btn btn_usuario"><span class="btn_usuario--nombre">N</span></button>
+            </div>
+        </nav>
+    </header>
+    <aside id="lateral">
+        <section>
+            <div class="contenedorBiblioteca">
+                <h1 class="contenedorBiblioteca--titulo">Tu biblioteca</h1>
+                <div class="contenedorBiblioteca">
+                    <button class="contenedorBiblioteca--crear"><i class="fa-regular fa-plus"></i></i> Crear</button>
+                    <button class="contenedorBiblioteca--btn"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+                </div>
+                
+            </div>
+        </section>
+        <div class="contenedorBiblioteca">
+            <ul class="contenedorBiblioteca_lista">
+                <li class="contenedorBiblioteca_lista_item">Listas</li>
+                <li class="contenedorBiblioteca_lista_item">Artistas</li>
+                <li class="contenedorBiblioteca_lista_item">Álbumes</li>
+            </ul>
+        </div>
+        <div class="contenedorBiblioteca">
+            <button class="contenedorBiblioteca--btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div class="contenedorBiblioteca--recientes">
+                <span class="">Recientes</span>
+                <button class="contenedorBiblioteca--icono contenedorBiblioteca--recientes"><i class="fa-solid fa-list"></i></button>
+            </div>
+        </div>
+        <section>
+            <div class="listaReproduccion">
+                <div><button class="listaReproduccion_icono"><i class="fa-solid fa-heart"></i></button></div>
+                <div>
+                    <h3 class="listaReproduccion_titulo">Canciones que te gustan</h3>
+                    <span class="listaReproduccion_canciones">Lista • 9 canciones</span>
+                </div>
+            </div>
+            <div class="listaReproduccion">
+                <div>
+                    <img class="listaReproduccion_icono listaReproduccion--img" src="https://yt3.googleusercontent.com/aJlR4N8X8RgblR9UpGt20quTucZKofD3YgB0cKHSj_cz2ElIAe6XVp5vvnyReElWM1lYTll0Yw=s900-c-k-c0x00ffffff-no-rj" alt="MicroTDH">
+                </div>
+                <div>
+                    <h3 class="listaReproduccion_titulo">Micro TDH</h3>
+                    <span class="listaReproduccion_canciones">Artista</span>
+                </div>
+            </div>
+            <div class="listaReproduccion">
+                <div>
+                    <img class="listaReproduccion_icono listaReproduccion--img" src="https://i.scdn.co/image/ab6761610000e5ebcf551cc23e7ec4bb51fdb86f" alt="Neutro Shorty">
+                </div>
+                <div>
+                    <h3 class="listaReproduccion_titulo">Neutro Shorty</h3>
+                    <span class="listaReproduccion_canciones">Artista</span>
+                </div>
+            </div>
+            <div class="listaReproduccion">
+                <div>
+                    <img class="listaReproduccion_icono listaReproduccion--img" src="https://i.scdn.co/image/ab6761610000e5eb59c62a8785647cce8155811e" alt="Jeeiph">
+                </div>
+                <div>
+                    <h3 class="listaReproduccion_titulo">Jeeiph</h3>
+                    <span class="listaReproduccion_canciones">Artista</span>
+                </div>
+            </div>
+            <div class="listaReproduccion">
+                <div>
+                    <img class="listaReproduccion_icono" src="https://i.scdn.co/image/ab67616d0000b273726005f0f81903e157d9dbc7" alt="5SOS">
+                </div>
+                <div>
+                    <h3 class="listaReproduccion_titulo">CALM</h3>
+                    <span class="listaReproduccion_canciones">Album • 5 Seconds of Summer</span>
+                </div>
+            </div>
+            <div class="listaReproduccion">
+                <div>
+                    <img class="listaReproduccion_icono" src="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/3c/46/d1/3c46d127-ecb2-a73a-2db1-d8e2c3c51a2f/0.jpg/1200x630bb.jpg" alt="Tu y yo">
+                </div>
+                <div>
+                    <h3 class="listaReproduccion_titulo">Tu y yo</h3>
+                    <span class="listaReproduccion_canciones">Sencillo • K-Rak</span>
+                </div>
+            </div>
+            <div class="listaReproduccion">
+                <div>
+                    <img class="listaReproduccion_icono" src="https://i.scdn.co/image/ab67616d0000b2734a9aca3bc77ca138cd66b742" alt="Hoy te vi">
+                </div>
+                <div>
+                    <h3 class="listaReproduccion_titulo">Hoy te vi</h3>
+                    <span class="listaReproduccion_canciones">Sencillo • Sebas Barcenas</span>
+                </div>
+            </div>
+        </section>
+        
+    </aside>
+    <main id="contenido">
+        <div class="contenedorPrincipal">
+            <section>
+                <div class="contenedorBiblioteca">
+                    <ul class="contenedorBiblioteca_lista">
+                        <li class="contenedorBiblioteca_lista_item item">Todo</li>
+                        <li class="contenedorBiblioteca_lista_item">Música</li>
+                        <li class="contenedorBiblioteca_lista_item">Pódcasts</li>
+                        <li class="contenedorBiblioteca_lista_item">Audiolibros</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="titulo">
+                <span class="titulo_span">Música sin fin basada en tus canciones y artistas favoritos.</span>
+                <h3>Emisoras recomendadas</h3>
+            </div>
+            <section>
+                <div class="emisorasContenedor">
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/1aWJsBQa67l72j1VT3D6Ow/es-419" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_texto">
+                            <span>Con Milo j, KHEA, Manuel Medrano y más</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/2TQ4CGgxxCWHqa9yYIGDoU/en" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_texto">
+                            <span>Con Big Soto, Neutro Shorty, Trainer y más</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/6ZtLRqHEkAXPWVw0eRbDac/es-419" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_texto">
+                            <span>Con Adso, Trainer, Reis Belico y más</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/0p4nmQO2msCgU4IF37Wi3j/es-419" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_texto">
+                            <span>Con Adso, Trainer, Reis Belico y más</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/5fywYLnKJi950Y5yMqavxm/es-419" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_texto">
+                            <span>Con Adso, Trainer, Reis Belico y más</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3 class="titulo">Tus artistas favoritos</h3>
+                <div class="emisorasContenedor">
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen imagen--circulo" src="https://i.scdn.co/image/ab6761610000517448c6a0c02de934d0378e88a3" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_artista">
+                            <span>Micro TDH</span>
+                        </div>
+                        <div class="emisorasContenedor_artista--nombre">
+                            <span>Artista</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen imagen--circulo" src="https://i.scdn.co/image/ab67616100005174cf551cc23e7ec4bb51fdb86f" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_artista">
+                            <span>Neutro Shorty</span>
+                        </div>
+                        <div class="emisorasContenedor_artista--nombre">
+                            <span>Artista</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen imagen--circulo" src="https://i.scdn.co/image/ab6761610000e5eb6864df75e5a62de1062cfd7d" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_artista">
+                            <span>Public</span>
+                        </div>
+                        <div class="emisorasContenedor_artista--nombre">
+                            <span>Artista</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen imagen--circulo" src="https://i.scdn.co/image/ab676161000051747b201ade1f4494891f686e33" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_artista">
+                            <span>Reik</span>
+                        </div>
+                        <div class="emisorasContenedor_artista--nombre">
+                            <span>Artista</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen imagen--circulo" src="https://i.scdn.co/image/ab6761610000517431f2fc33c37b08373e7678fa" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div class="emisorasContenedor_artista">
+                            <span>Omar Koonze</span>
+                        </div>
+                        <div class="emisorasContenedor_artista--nombre">
+                            <span>Artista</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3 class="titulo">Escuchado recientemente</h3>
+                <div class="emisorasContenedor">
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845fc679673a0daf540f8f9744" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div >
+                            <span>Paz Mental</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://i.scdn.co/image/ab67616d00001e02820cc4470b320046e45cd9cd" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div>
+                            <span>PRENDO PA'FUMAR</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://i.scdn.co/image/ab67616d0000b273f7ec724fbf97a30869d06240" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div>
+                            <span>Complicated</span>
+                        </div>
+                    </div>
+                    <div class="emisorasContenedor_item">
+                        <img class="imagen" src="https://i.scdn.co/image/ab67616d0000b2730d0621554b1c6c9dbf3556be" alt="">
+                        <button class="emisorasContenedor_play"><i class="fas fa-play"></i></button>
+                        <div>
+                            <span>Make you mine</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="separador">
+            <section class="">
+                <div class="grilla_contenedor">
+                    <div class="grilla_contenedor_lista">
+                        <h4>Empresa</h4>
+                        <a href="#">Acerca de</a>
+                        <a href="#">Empleo</a>
+                        <a href="#">For The Record</a>
+                    </div>
+                    <div class="grilla_contenedor_lista">
+                        <h4>Comunidades</h4>
+                        <a href="#">Para artistas</a>
+                        <a href="#">Desarrolladores</a>
+                        <a href="#">Publicidad</a>
+                        <a href="#">Inversores</a>
+                        <a href="#">Proveedores</a>
+                    </div>
+                    <div class="grilla_contenedor_lista">
+                        <h4>Enlaces útiles</h4>
+                        <a href="#">Asistencia</a>
+                        <a href="#">App gratis para móvil</a>
+                        <a href="#">Popular por pais</a>
+                        <a href="#">Import your music</a>
+                    </div>
+                    <div class="grilla_contenedor_lista">
+                        <h4>Planes de spotify</h4>
+                        <a href="#">Premium Individual</a>
+                        <a href="#">Premiun Duo</a>
+                        <a href="#">Premium Familiar</a>
+                        <a href="#">Premium para Estudiantes</a>
+                        <a href="#">Spotify free</a>
+                        <a href="#">Audiobooks Access</a>
+                    </div>
+                    <div class="grilla_btn">
+                        <button class="btn_redes"><i class="fa-brands fa-instagram"></i></button>
+                        <button class="btn_redes"><i class="fa-brands fa-twitter"></i></button>
+                        <button class="btn_redes"><i class="fa-brands fa-facebook"></i></button>
+                    </div>
+                </div>
+                <hr class="separador">
+                <p class="titulo_btn">&copy 2025 Spotify AB</p>
+            </section>
+        </div>
+    </main>
+    <section id="reproductor">
+        <div class="grilla_botones">
+            <div class="grilla_botones_control">
+                <button><i class="fa-solid fa-shuffle"></i></button>
+                <button><i class="fa-solid fa-backward"></i></button>
+                <button><i class="fa-solid fa-circle-play"></i></button>
+                <button><i class="fa-solid fa-forward"></i></button>
+                <button><i class="fa-solid fa-reply"></i></button>
+                <div>
+                    
+                </div>
+            </div>
+            <div class="grilla_botones_control derecha">
+                <button><i class="fa-solid fa-play"></i></button>
+                <button><i class="fa-solid fa-microphone"></i></button>
+                <button><i class="fa-solid fa-bars"></i></button>
+                <button><i class="fa-solid fa-square-share-nodes"></i></button>
+                <button><i class="fa-solid fa-volume-low"></i></button>
+                <button><i class="fa-solid fa-square"></i></button>
+                <button><i class="fa-solid fa-expand"></i></button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

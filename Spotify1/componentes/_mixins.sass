@@ -1,0 +1,59 @@
+@use '../utilidades/variables'
+@mixin displayCenter()
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+@mixin flexItem()
+    display: flex
+    place-content: center
+    place-items: center
+
+@mixin gridLayout($columnWidth: 425px, $headerHeight: 40px, $gapSize: 5px)
+    display: grid
+    grid-template-columns: $columnWidth 1fr
+    grid-template-rows: $headerHeight 1fr
+    grid-template-areas: "barra_busqueda barra_busqueda" "lateral contenido" "lateral contenido" "reproductor reproductor"
+    gap: $gapSize
+
+@mixin ListRepro()
+    display: flex
+    align-items: center
+    position: relative
+    padding: 8px
+    gap: 15px
+
+@mixin btnCrear()
+    border: none
+    border-radius: 20px
+    font-size: variables.$espacioMD
+    color: variables.$colorClaro
+    background: lighten(variables.$colorSecundario, 10%)
+    height: 30px
+    width: 80px
+    display: flex
+    place-content: center
+    place-items: center
+    gap: 5px
+    margin-left: 95px
+
+@mixin scrollbarra()
+    scrollbar-width: none
+    &:hover
+        scrollbar-width: thin
+        scrollbar-color: #b3b3b3 #1f1f1f
+
+@mixin escalado()
+    color: lighten(variables.$colorSecundario, 50%)
+    &:hover
+        color: lighten(variables.$colorClaro, 15%)
+        cursor: pointer
+        transform: scale(1.1)
+
+@mixin gridQuery($columnWidth: 120px, $headerHeight: 40px, $gapSize: 5px)
+    display: grid
+    grid-template-columns: $columnWidth 1fr
+    grid-template-rows: $headerHeight 1fr 
+    grid-template-areas: "barra_busqueda barra_busqueda" "lateral contenido" "lateral contenido" "reproductor reproductor"
+    gap: $gapSize
+

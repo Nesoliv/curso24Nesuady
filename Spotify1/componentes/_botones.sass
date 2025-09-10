@@ -1,0 +1,145 @@
+@use '../utilidades/variables'
+@use '../componentes/mixins'
+
+//Boton del logo
+.btn_logo
+    width: variables.$espacioLLG
+    height: variables.$espacioLLG
+    border: none
+    background: variables.$boton-transparente
+    fill: variables.$colorClaro
+    margin: 10px 0 0 20px
+    &--spotify
+        &:hover
+            cursor: pointer
+
+//Botones del header
+.btn
+    &--inicio
+        padding: 10px
+        background: variables.$colorSecundario
+        border-radius: 50%
+        border: 1px solid variables.$colorSecundario
+        fill: variables.$colorTextoSecundario
+        margin-left: variables.$espacioMD
+        margin-top: variables.$espacioXS
+        &:hover
+            fill: lighten(variables.$colorClaro, 15%)
+            cursor: pointer
+            transform: scale(1.1)
+    &--novedades
+        border: none
+        background: variables.$boton-transparente
+        fill: lighten(variables.$colorSecundario, 50%)
+        padding: 10px
+        &:hover
+            fill: lighten(variables.$colorClaro, 15%)
+            cursor: pointer
+    &--explorar
+        padding: 12px
+        fill: lighten(variables.$colorSecundario, 50px)
+        border: none
+        border-radius: 0 50px 50px 0
+        background: variables.$colorSecundario
+        &:hover
+            fill: lighten(variables.$colorSecundario, 60%)
+    &_premium
+        border: none
+        border-radius: 30px
+        background: lighten(variables.$colorClaro, 50%)
+        color: lighten(variables.$colorPrincipal, 10%)
+        font-weight: bold
+        margin-right: 40px
+        width: 150px
+        height: 35px
+        &:hover
+            transform: scale(1.1)
+    &--lupa
+        margin-left: variables.$espacioSM
+        border-radius: 50px 0 0 50px
+        border: none
+        background: variables.$colorSecundario
+        color: lighten(variables.$colorSecundario, 50%)
+        font-size: variables.$espacioLG
+    &_usuario
+        border-radius: 50px
+        margin-right: 5px
+        background: lighten(variables.$colorSecundario, 10%)
+        border: none
+        color: variables.$colorClaro
+        font-weight: bold
+        &:hover
+            cursor: pointer
+            transform: scale(1.1)
+
+//Botones del aside
+.contenedorBiblioteca
+    &--crear
+        @include mixins.btnCrear()
+        &:hover
+            background: lighten(variables.$colorSecundario, 15%)
+            cursor: pointer
+    &--btn
+        background-color: variables.$boton-transparente
+        width: 33px
+        height: 33px
+        border: none
+        cursor: pointer
+        color: lighten(variables.$colorSecundario, 50%)
+        font-size: 16px
+        margin-left: 10px
+        &:hover
+            background: lighten(variables.$colorSecundario, 15%)
+            color: variables.$colorClaro
+            border-radius: 50px
+
+//Boton de play verde (hover)
+.emisorasContenedor_play
+    width: 48px
+    height: 48px
+    border: none
+    border-radius: 50px
+    background-color: variables.$verde-hover
+    position: absolute
+    bottom: 85px
+    right: 30px
+    opacity: 0
+    transform: translateY(20px)
+    transition: all 0.3s ease
+    i
+        font-size: 20px
+
+//Boton de redes en la seccion footer
+.btn_redes
+    width: 30px
+    height: 30px
+    border: none
+    background: lighten(variables.$colorSecundario, 30%)
+    border-radius: 40px
+    margin: 5px
+    i
+        color: variables.$colorClaro
+
+//Botones del reproductor
+.grilla_botones
+    display: grid
+    grid-template-columns: auto 1fr
+    gap: 150px
+    padding: 20px
+    margin-left: 500px
+    &_control
+        display: flex
+        gap: 15px
+        align-items: center
+    .derecha
+        display: flex
+        margin-left: 150px
+        gap: 2px
+    button
+        background: variables.$boton-transparente
+        border: none
+        cursor: pointer
+        padding: 10px
+        color: lighten(variables.$colorSecundario, 30%)
+        font-size: 18px
+        transition: transform 0.2s

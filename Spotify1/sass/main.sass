@@ -1,0 +1,246 @@
+@use '../componentes/mixins'
+@use '../componentes/botones'
+@use '../utilidades/variables'
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: "Nunito", sans-serif 
+
+body
+    width: 100dvw
+    background: variables.$colorPrincipal
+    color: variables.$colorClaro
+    overflow: hidden
+
+.contenedor
+    @include mixins.displayCenter()
+    width: 100dvw
+    &_busqueda
+        @include mixins.displayCenter()
+    .sidebar
+        height: 48px
+        width: 390px
+        border-right: none
+        border: none
+        background-color: variables.$colorSecundario
+
+input
+    user-select: none
+    color: variables.$colorClaro
+    font-size: variables.$espacioMD
+    &::placeholder
+        font-size: variables.$espacioMD
+        color: lighten(variables.$colorTextoSecundario, 10%)
+    &:focus
+        outline: none
+
+.btn
+    width: variables.$espacioLLG
+    height: variables.$espacioLLG
+    &_instalar
+        font-size: 14px
+        font-weight: bold
+        @include mixins.escalado()
+        
+
+aside
+    background: variables.$colorSecundario
+    height: 75dvh
+    overflow-y: scroll
+    border: none
+    border-radius: variables.$espacioSM
+    margin: 16px 4px 0 10px
+    @include mixins.scrollbarra()
+
+.contenedorBiblioteca
+    @include mixins.displayCenter()
+    padding: 10px 14px 2px
+    &--titulo
+        font-size: variables.$espacioMD
+        &:hover
+            cursor: pointer
+    &--recientes
+        font-size: 14px
+        @include mixins.escalado()
+    &--icono
+        background: variables.$boton-transparente
+        border: none
+
+
+.contenedorBiblioteca_lista
+    display: flex
+    align-items: center
+    gap: variables.$espacioSM
+    &_item
+        @include mixins.flexItem()
+        background: lighten(variables.$colorSecundario, 10%)
+        border-radius: 50px
+        font-size: 14px
+        height: 35px
+        width: 70px
+        list-style: none
+        padding: variables.$espacioXS
+        &:hover
+            cursor: pointer
+            background: lighten(variables.$colorSecundario, 15%)
+    &--todo
+        background-color: variables.$colorClaro
+
+.listaReproduccion
+    @include mixins.ListRepro()
+    &:hover
+        background: lighten(variables.$colorSecundario, 15%)
+        cursor: pointer
+    &_icono
+        width: variables.$espacioLLG
+        height: variables.$espacioLLG
+        background-color: variables.$icono-color
+        display: flex
+        justify-content: center
+        align-items: center
+        border: none
+        border-radius: variables.$espacioXS
+        i
+            color: variables.$colorClaro
+    &--img
+        border-radius: 50px
+    &_titulo
+        font-size: variables.$espacioMD
+    &_canciones
+        font-size: 14px
+        color: variables.$colorTextoSecundario
+
+
+.contenedorPrincipal
+    height: 75dvh
+    background: variables.$colorSecundario
+    padding: variables.$espacioMD
+    margin: 16px 10px 0 0 
+    border-radius: variables.$espacioSM
+    overflow-y: scroll
+    @include mixins.scrollbarra()
+    
+
+.titulo
+    margin: 14px
+    &:hover
+        cursor: pointer
+    &_span
+        font-size: 12px
+        color: lighten(variables.$colorSecundario, 30%)
+
+.emisorasContenedor
+    display: flex
+    flex-direction: row
+    &_item
+        @include mixins.flexItem()
+        flex-direction: column
+        position: relative
+        width: 175px
+        height: 230px
+        gap: 10px
+        &:hover
+            border-radius: 10px
+            background: lighten(variables.$colorSecundario, 10%)
+            .emisorasContenedor_play
+                opacity: 1
+                transform: translateY(0)
+                box-shadow: 5px 5px 20px black
+    &_texto
+        @include mixins.flexItem()
+        font-size: 14px
+        color: lighten(variables.$colorSecundario, 40%)
+        margin: 10px
+    &_artista
+        display: flex
+        flex-direction: row
+        &--nombre
+            font-size: 14px
+            color: lighten(variables.$colorSecundario, 30%)
+    .imagen
+        width: 150px
+        height: 150px
+        border-radius: 10px
+        &--circulo
+            border-radius: 70px
+
+.separador
+    border: none
+    height: 1px
+    background: lighten(variables.$colorSecundario, 20%)
+    margin: 20px
+
+.grilla_contenedor
+    display: grid
+    grid-template-columns: repeat(5, 1fr)
+    gap: 20px
+    a
+        text-decoration: none
+        color: lighten(variables.$colorSecundario, 30%)
+        margin: 10px
+        :hover
+            cursor: pointer
+    &_lista
+        display: flex
+        flex-direction: column
+        align-content: center
+
+.titulo_btn
+    color: lighten(variables.$colorSecundario, 30%)
+
+.gridArea
+    @include mixins.gridLayout()
+    #barra_busqueda
+        grid-area: barra_busqueda
+    #lateral
+        grid-area: lateral
+    #contenido
+        grid-area: contenido
+    #reproductor
+        grid-area: reproductor
+
+@media (max-width: 768px)
+    .gridArea
+        @include mixins.gridQuery()
+    aside
+        display: flex
+        flex-direction: column
+        place-content: center
+        place-items: center
+        overflow-x: hidden
+        .contenedorBiblioteca_lista_item
+            display: none
+        .contenedorBiblioteca--recientes
+            display: none
+    .listaReproduccion_titulo
+        display: none
+    .listaReproduccion_canciones
+        display: none
+    .sidebar
+        display: none
+    .btn--explorar
+        display: none
+    .btn--lupa
+        border-radius: 50px
+        margin-right: 10px
+    .btn_instalar
+        display: none
+    .btn--novedades
+        margin-left: -20px
+    .btn_premium
+        margin-right: 30px
+
+
+@media screen and (min-width: 769px) and (max-width: 1023px)
+    .sidebar
+        display: none
+    .btn--lupa
+        border-radius: 50px
+        margin-right: 10px
+    .btn--explorar
+        border-radius: 50px
+        margin-left: 10px
