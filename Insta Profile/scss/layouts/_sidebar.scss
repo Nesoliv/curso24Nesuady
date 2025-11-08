@@ -1,0 +1,100 @@
+@use '../utils/mixins';
+@use '../utils/variables' as *;
+
+.sidebar{
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    span{
+        display: none;
+    }
+    .menu-sidebar{
+        @include mixins.flex-space-between;
+        padding: 10px 15px;
+        .item-logo{
+            display: none;
+        }
+        .item-search{
+            display: none;
+        }
+        .item-notifications{
+            display: none;
+        }
+        .item-config{
+            display: none;
+        }
+        .item-apps{
+            display: none;
+        }
+        img{
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+        }
+    }
+
+
+}
+
+
+@media only screen and (min-width: $tablet-breakpoint){
+    .sidebar{
+        @include mixins.flex-space-between;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 80px;
+        height: 100vh;
+        .menu-sidebar{
+            width: 80px;
+            @include mixins.flex-column($align: center, $gap: 10px);
+            .item-logo{
+                display: block;
+            }
+            .item-search{
+                display: block;
+            }
+            .item-notifications{
+                display: block;
+            }
+            .item-config{
+                display: block;
+            }
+            .item-apps{
+                display: block;
+            }
+        }
+    }
+
+}
+
+
+
+@media only screen and (min-width: $desktop-breakpoint){
+    .sidebar{
+        width: 230px;
+        height: 100vh;
+        .menu-sidebar{
+            width: 230px;
+            display: flex;
+            align-items: flex-start;
+            .item{
+                @include mixins.flex-row($gap: 10px);
+                width: 100%;
+                border-radius: 10px;
+                padding: 10px;
+                &:hover{
+                    background-color: $secondary-color;
+                    cursor: pointer;
+                }
+            }
+            &:hover{
+                span{
+                    display: block;
+                    font-size: 1rem;
+                }
+            }
+            }
+        }
+    }

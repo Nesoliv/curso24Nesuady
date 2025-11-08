@@ -1,0 +1,27 @@
+@use '../utils/mixins';
+@use '../utils/variables' as *;
+.header{
+    width: 100%;
+    padding: 15px 10px;
+    background-color: #fff;
+    border-bottom: 1px solid $border-color;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    .nav-mobile{
+        @include mixins.flex-center();
+        gap: 15px;   
+        .nav-icon{
+            font-size: 16px;
+        }
+        h1{
+            font-size: 16px;
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-breakpoint){
+    .header{
+        display: none;
+    }
+}

@@ -1,0 +1,231 @@
+@use '../utils/mixins';
+@use '../utils/variables' as *;
+.profile-content{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    .logo{
+        width: 90px;
+        height: 90px;
+        background-color: $secondary-color;
+        border: 1px solid $border-color;
+        border-radius: 50%;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .desc{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 20px;
+        gap: 15px;
+    }
+    .info-user{
+        @include mixins.flex-space-between;
+        align-items: center;
+        h2{
+            font-size: 24px;
+            font-weight: normal;
+        }
+    }      
+    .actions{
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.bio{
+    padding: 10px;
+    h3{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .tag{
+        color: #888;
+        font-size: 1rem;
+    }
+    .info-bio{
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+    }
+    .mutual{
+        margin-top: 25px;
+        font-size: 14px;
+        color: #555;
+        strong{
+            color: #000;
+        }
+    }
+
+}
+
+.destacated{
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px; 
+    margin-top: 25px; 
+    width: 100%;
+    gap: 5px;
+    img{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 4px solid $secondary-color;
+        padding: 3px;
+    }
+    .item-destacated{
+        @include mixins.flex-column($align: center);
+        font-size: 12px;
+        span{
+            margin-top: 5px;
+        }
+    }
+
+}
+
+.info-post{
+    display: grid;
+    grid-template-columns: 2, 1fr;
+    border-top: 1px solid $border-color;
+    gap: 5px;
+    .section-stats{
+        @include mixins.flex-around();
+        padding: 10px;
+        .item-stats{
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    }
+    .section-post{
+        @include mixins.flex-around();
+        padding: 10px;
+    }
+}
+
+.stats{
+    display: none;
+}
+
+.content-posts{
+    @include mixins.grid();
+    width: 100%;
+    gap: 1px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+}
+
+@media only screen and (min-width: $tablet-breakpoint){
+    .principal{
+        margin-left: 80px;
+    }
+    .profile-content{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        .logo{
+            width: 180px;
+            height: 180px;
+        }
+        .desc{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .info-user{
+            gap: 10px;
+            margin-top: 25px;
+        }
+    }
+    .stats{
+        display: block;
+        margin: -200px 0 0 250px;
+        .info{
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .item-info{
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+        
+    }
+    .info-post{
+        border-top: none;
+        .section-stats{
+            display: none;
+        }
+    }
+    .bio{
+        margin: 20px 0 0 240px;
+
+    }
+    .destacated{
+        justify-content: space-around;
+        gap: 20px;
+        padding: 30px;
+        img{
+            width: 90px;
+            height: 90px;
+        }
+        .item-destacated{
+            font-size: 14px;
+        }
+    
+    }
+}
+
+@media only screen and (min-width: $desktop-breakpoint){
+    .principal{
+        margin-left: 230px;
+        margin-right: 230px;
+    }
+    .profile-content{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        .logo{
+            width: 180px;
+            height: 180px;
+        }
+        .desc{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .info-user{
+            gap: 10px;
+            margin-top: 25px;
+        }
+    }
+        .stats{
+        display: block;
+        margin: -200px 0 0 315px;
+        .info{
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .item-info{
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+        
+    }
+    .bio{
+        margin: 20px 0 0 305px;
+
+    }
+}

@@ -1,0 +1,29 @@
+@use '../utils/mixins';
+@use '../utils/variables' as *;
+.footer-content{
+    width: 100%;
+    padding: 1rem;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: darkgray;
+    gap: 5px;
+    a{
+        text-decoration: none;
+        color: darkgray;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+footer{
+    display: none;
+}
+
+@media only screen and (min-width: $tablet-breakpoint){
+    footer{
+        display: block;
+        margin-left: 80px;
+    }
+}
